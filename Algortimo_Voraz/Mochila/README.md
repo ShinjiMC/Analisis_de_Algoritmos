@@ -3,3 +3,5 @@
 - Una mochila en la que podemos meter objetos, con una capacidad de peso máximo 10.
 
 Objetivo: llenar la mochila, maximizando el beneficio de los objetos transportados, y respetando la limitación de capacidad máxima 10. Los objetos se pueden partir en trozos.
+
+[![Mochila.png](https://i.postimg.cc/Wz2Bt15J/Mochila.png)](https://postimg.cc/FdBWBN59)
