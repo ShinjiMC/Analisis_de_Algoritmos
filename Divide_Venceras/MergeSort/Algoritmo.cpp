@@ -1,16 +1,11 @@
 #include <iostream>
 #include <vector>
 
-// Función para combinar dos subarrays ordenados en un único array ordenado
 void merge(std::vector<int>& arr, int left, int mid, int right) {
     int i, j, k;
     int n1 = mid - left + 1;
     int n2 = right - mid;
-
-    // Crear arrays temporales
     std::vector<int> L(n1), R(n2);
-
-    // Copiar los datos a los arrays temporales L[] y R[]
     for (i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (j = 0; j < n2; j++)
@@ -47,24 +42,33 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
     }
 }
 
-// Función principal de Mergesort
-void mergeSort(std::vector<int>& arr, int left, int right) {
-    if (left < right) {
-        // Calcula el punto medio
-        int mid = left + (right - left) / 2;
-
-        // Ordena la primera mitad
-        mergeSort(arr, left, mid);
-
-        // Ordena la segunda mitad
-        mergeSort(arr, mid + 1, right);
-
-        // Combina las mitades ordenadas
-        merge(arr, left, mid, right);
+void directSort(std::vector<int>& arr, int left, int right) {
+    for (int i = left + 1; i <= right; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= left && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
     }
 }
 
-// Función de ayuda para imprimir el array
+void mergeSort(std::vector<int>& arr, int left, int right) {
+    if (left < right) {
+        if (right - left + 1 <= 5) {
+            directSort(arr, left, right);
+        }
+        else {
+            int mid = left + (right - left) / 2;
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
+}
+
+
 void printArray(const std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; i++) {
@@ -73,7 +77,7 @@ void printArray(const std::vector<int>& arr) {
     std::cout << std::endl;
 }
 
-// Ejemplo de uso del algoritmo Mergesort
+
 int main() {
     std::vector<int> arr = { 12, 11, 13, 5, 6, 7, 1, 30, 23, 8 };
     int n = arr.size();
