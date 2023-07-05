@@ -24,11 +24,21 @@ int search(const std::vector<int>& arr, int key) {
     return binarySearch(arr, key, 0, n - 1);
 }
 
+void printArray(const std::vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
 int main() {
     std::vector<int> arr = { 12, 11, 13, 5, 6, 7, 1, 30, 23, 8, 9 };
     int key = 7;
     int index = search(arr, key);
-
+    std::cout << "Array: ";
+    printArray(arr);
     if (index != -1) {
         std::cout << "Elemento encontrado en el indice: " << index << std::endl;
     }
@@ -38,3 +48,4 @@ int main() {
 
     return 0;
 }
+
