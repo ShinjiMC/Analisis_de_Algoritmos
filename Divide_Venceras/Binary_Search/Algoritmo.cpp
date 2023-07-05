@@ -1,28 +1,59 @@
 #include <iostream>
 #include <vector>
 
-int binarySearch(const std::vector<int>& arr, int key, int low, int high) {
-    if (low <= high) {
-        int mid = low + (high - low) / 2;
+#include <vector>
 
-        if (arr[mid] == key) {
-            return mid; // Elemento encontrado, retornar el índice
-        }
-        else if (arr[mid] > key) {
-            return binarySearch(arr, key, low, mid - 1); // Buscar en la mitad izquierda
-        }
-        else {
-            return binarySearch(arr, key, mid + 1, high); // Buscar en la mitad derecha
-        }
+int Pivote(int i, int j, int& l, std::vector<int>& A) {
+    int p = A[i]; // Se toma como pivote el primer elemento
+    int k = i;
+    l = j + 1;
+
+    do {
+        k++;
+    } while (A[k] > p && k < j);
+
+    do {
+        l--;
+    } while (A[l] <= p);
+
+    while (k < l) {
+        std::swap(A[k], A[l]);
+
+        do {
+            k++;
+        } while (A[k] > p);
+
+        do {
+            l--;
+        } while (A[l] <= p);
     }
 
-    return -1; // Elemento no encontrado
+    std::swap(A[i], A[l]);
+
+    return l;
 }
 
-int search(const std::vector<int>& arr, int key) {
-    int n = arr.size();
-    return binarySearch(arr, key, 0, n - 1);
+int BusquedaBinaria(std::vector<int>& T, int s) {
+    int n = T.size();
+    int i = 0;
+    int j = n - 1;
+
+    while (true) {
+        int l;
+        Pivote(i, j, l, T);
+
+        if (s < l) {
+            j = l - 1;
+        }
+        else if (s > l) {
+            i = l + 1;
+        }
+        else {
+            return T[l];
+        }
+    }
 }
+
 
 void printArray(const std::vector<int>& arr) {
     int n = arr.size();
@@ -36,7 +67,7 @@ void printArray(const std::vector<int>& arr) {
 int main() {
     std::vector<int> arr = { 12, 11, 13, 5, 6, 7, 1, 30, 23, 8, 9 };
     int key = 7;
-    int index = search(arr, key);
+    int index = BusquedaBinaria(arr, key);
     std::cout << "Array: ";
     printArray(arr);
     if (index != -1) {
