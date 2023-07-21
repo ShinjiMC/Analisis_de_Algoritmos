@@ -14,5 +14,6 @@ Una vez que se ha construido la tabla, se puede utilizar un algoritmo de recompo
 
 El Problema de la mochila 0/1 tiene muchas aplicaciones prácticas, como la planificación de la producción, la gestión de inventarios, la asignación de recursos y la selección de carteras de inversión. Además, es un problema interesante desde el punto de vista teórico, ya que es NP-completo y no se conoce un algoritmo exacto que resuelva el problema en tiempo polinómico.
 
-##Ejemplo
+### Ejemplo
+
 [![Image.png](https://i.postimg.cc/JnYjfHV1/Image.png)](https://postimg.cc/yg9J9d85)
