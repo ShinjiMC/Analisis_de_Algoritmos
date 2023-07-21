@@ -2,6 +2,15 @@
 #include <vector>
 #include <algorithm>
 
+void printVector2D(const std::vector<std::vector<int>>& vec) {
+    for (const auto& row : vec) {
+        for (int val : row) {
+            std::cout << val << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 std::pair<int, std::vector<int>> Mochila(int n, int M, const std::vector<int>& p, const std::vector<int>& b) {
     std::vector<std::vector<int>> V(n + 1, std::vector<int>(M + 1, 0));
     for (int i = 1; i <= n; ++i) {
@@ -24,6 +33,9 @@ std::pair<int, std::vector<int>> Mochila(int n, int M, const std::vector<int>& p
         }
         i--;
     }
+    std::cout << "Tabla V:" << std::endl;
+    printVector2D(V);
+
     return { V[n][M], x };
 }
 
@@ -50,7 +62,7 @@ int main() {
     std::pair<int, std::vector<int>> result = Mochila(n, M, p, b);
 
     std::cout << "El peso maximo que se puede obtener: " << result.first << std::endl;
-    std::cout << "Los objetos de la solución óptima son: ";
+    std::cout << "Los objetos de la solucion optima son: ";
     for (int i = 1; i <= n; ++i) {
         if (result.second[i] == 1) {
             std::cout << i << " ";
