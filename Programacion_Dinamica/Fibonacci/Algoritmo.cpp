@@ -1,5 +1,11 @@
 #include <iostream>
 #include <vector>
+void printVector(const std::vector<int>& vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        std::cout << vec[i] << " ";
+    }
+    std::cout << std::endl;
+}
 int fibonacci(int n) {
     std::vector<int> T(n + 1, 0);
     T[1] = 1;
@@ -8,6 +14,8 @@ int fibonacci(int n) {
     for (int i = 3; i <= n; i++) {
         T[i] = T[i - 1] + T[i - 2];
     }
+    std::cout << " Tabla T: " << std::endl;
+    printVector(T);
     return T[n];
 }
 
