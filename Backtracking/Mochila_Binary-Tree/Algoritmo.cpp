@@ -63,7 +63,7 @@ int main() {
     int n, M;
     cout << "Ingrese la cantidad de objetos (n): ";
     cin >> n;
-    cout << "Ingrese el máximo peso (M): ";
+    cout << "Ingrese el maximo peso (M): ";
     cin >> M;
     vector<int> p(n);
     vector<int> b(n);
