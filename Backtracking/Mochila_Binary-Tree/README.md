@@ -10,6 +10,6 @@ El algoritmo de backtracking consiste en generar todas las posibles soluciones d
 
 El pseudocódigo del algoritmo de backtracking para el Problema de la mochila 0/1 con árbol binario incluye una función principal llamada `Mochila01Backtracking` y una función auxiliar llamada `Generar`. La función `Mochila01Backtracking` inicializa las variables necesarias y llama a la función `Generar` para generar todas las posibles soluciones. La función `Generar` es la encargada de generar el árbol de soluciones y realizar el proceso de backtracking.
 
-##Ejemplo
+## Ejemplo
 
 [![Image.png](https://i.postimg.cc/BbJgWhfb/Image.png)](https://postimg.cc/2bXvh76N)
